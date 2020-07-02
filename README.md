@@ -2,6 +2,10 @@
 
 Típico programa de gestión de tareas usando las novedades que traerá Vue.js v3
 
+## Acerca de
+En la rama Tareas Vue 2, tienes un ejemplo de como se haría usando los conceptos típicos de de Vue 2
+En la rama Tareas Vue 3, tienes una variación con las novedades que será tambiñen lo que mustre la rama master.
+
 ## Project setup
 ```
 npm install
