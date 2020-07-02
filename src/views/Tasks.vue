@@ -10,39 +10,68 @@
 </template>
 
 <script>
-import tasks from '@/api/tasks';
+import taskList from '@/api/tasks';
 import AppTaskList from '@/components/AppTaskList.vue';
 import AppTaskSearch from '@/components/AppTaskSearch.vue';
 import AppTaskAdd from '@/components/AppTaskAdd.vue';
+// Los elementos qe usaremos
+import { ref, computed } from '@vue/composition-api';
 
 export default {
   name: 'Tasks',
-  created() {
-    this.tasks = tasks;
-  },
-  data() {
-    return {
-      tasks: [],
-      search: '',
-    };
-  },
-  methods: {
-    addTask(task) {
-      this.tasks.push({
-        title: task,
-        completed: false,
-      });
-    },
-  },
   components: {
     AppTaskList,
     AppTaskSearch,
     AppTaskAdd,
   },
-  computed: {
-    filteredTasks() {
-      return this.tasks.filter((task) => task.title.includes(this.search));
-    },
+  // función setup
+  setup() {
+    // Referencias observables. recuerda todo esta en value
+    const tasks = ref(taskList);
+    const search = ref('');
+
+    // Mi métodos
+    function addTask(task) {
+      tasks.value.push({
+        title: task,
+        completed: false,
+      });
+    }
+
+    // Campos computados
+    // https://vue-composition-api-rfc.netlify.app/api.html#computed
+    // podemos retornar un objeto reactivo que actualizará cuando sus dependencias cambien
+    // eslint-disable-next-line max-len
+    const filteredTasks = computed(() => tasks.value.filter((task) => task.title.includes(search.value)));
+
+    // Devolvemos lo que vamos a usar en el componente
+    return {
+      tasks, search, addTask, filteredTasks,
+    };
   },
+  // Vue 2
+  // created() {
+  //   this.tasks = tasks;
+  // },
+  // data() {
+  //   return {
+  //     tasks: [],
+  //     search: '',
+  //   };
+  // },
+  // methods: {
+  //   addTask(task) {
+  //     this.tasks.push({
+  //       title: task,
+  //       completed: false,
+  //     });
+  //   },
+  // },
+  // computed: {
+  //   filteredTasks() {
+  //     return this.tasks.filter((task) => task.title.includes(this.search));
+  //   },
+  // },
+
 };
 </script>
