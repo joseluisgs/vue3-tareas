@@ -5,6 +5,7 @@ Típico programa de gestión de tareas usando las novedades que traerá Vue.js v
 ## Acerca de
 En la rama Tareas Vue 2, tienes un ejemplo de como se haría usando los conceptos típicos de de Vue 2
 En la rama Tareas Vue 3, tienes una variación con las novedades que será tambiñen lo que mustre la rama master.
+Para ello usaremos [Vue Composition API](https://github.com/vuejs/composition-api)
 
 ## Project setup
 ```
