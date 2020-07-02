@@ -42,3 +42,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ## Licencia
 Este proyecto esta licenciado bajo licencia __MIT__, si desea saber más, visite el fichero [LICENSE](https://github.com/joseluisgs/notas-back-nem/blob/master/LICENSE) para su uso docente y educativo.
 
+#### Basado
+[Escuela Vue](https://escuelavue.es/series/curso-vue3-esencial-novedades/). Muchas gracias :)
