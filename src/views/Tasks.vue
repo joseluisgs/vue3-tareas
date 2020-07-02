@@ -25,6 +25,9 @@ export default {
     AppTaskAdd,
   },
   // función setup
+  // Ref sería nuestro data(),
+  // fuction seria nuestros methods
+  // computed seria nuestros computed
   setup() {
     // Referencias observables. recuerda todo esta en value
     const tasks = ref(taskList);
