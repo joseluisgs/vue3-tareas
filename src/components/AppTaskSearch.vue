@@ -19,6 +19,7 @@ export default {
   // Por eos no hay this como queremos
   // Propiedades es lo que recibe
   // Context es el this que antes usariamos
+  // https://vue-composition-api-rfc.netlify.app/api.html#setup
   setup(props, context) {
     function input(value) {
       context.emit('input', value);
