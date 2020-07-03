@@ -4,24 +4,31 @@
 // la función setup allá donde sea necesario
 // https://vue-composition-api-rfc.netlify.app/#logic-extraction-and-reuse
 
-import taskList from '@/api/tasks';
+import store from '@/store';
 import {
   computed, watch, reactive, toRefs,
 } from '@vue/composition-api';
 
 export default function useTasksSpace() {
   const tasksData = reactive({
-    tasks: taskList,
+    // tasks: taskList,
+    tasks: store.state.tasks,
     search: '',
     // eslint-disable-next-line max-len
     filteredTasks: computed(() => tasksData.tasks.filter((task) => task.title.includes(tasksData.search))),
   });
 
   function addTask(task) {
-    tasksData.tasks.push({
-      title: task,
-      completed: false,
-    });
+    // tasksData.tasks.push({
+    //   title: task,
+    //   completed: false,
+    // });
+    store
+      .dispatch('checkTaskProfanity', {
+        title: task,
+        completed: true,
+      })
+      .catch((error) => alert(error));
   }
 
   const { tasks, search } = toRefs(tasksData);
