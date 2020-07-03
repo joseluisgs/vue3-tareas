@@ -13,6 +13,18 @@
 import AppTaskList from '@/components/AppTaskList.vue';
 import AppTaskSearch from '@/components/AppTaskSearch.vue';
 import AppTaskAdd from '@/components/AppTaskAdd.vue';
+// Estado o ciclo de vida
+import {
+  onBeforeMount,
+  onMounted,
+  onBeforeUpdate,
+  onUpdated,
+  onBeforeUnmount,
+  onUnmounted,
+  onActivated,
+  onDeactivated,
+  onErrorCaptured,
+} from '@vue/composition-api';
 // nuestro espacio
 import useTasksSpace from '@/use/tasksSpace';
 // Los elementos qe usaremos
@@ -32,6 +44,35 @@ export default {
   // fuction seria nuestros methods
   // computed seria nuestros computed
   setup() {
+    // Ciclo de vida
+    // https://vue-composition-api-rfc.netlify.app/api.html#lifecycle-hooks
+    onBeforeMount(() => {
+      console.log('Before Mount!');
+    });
+    onMounted(() => {
+      console.log('Mounted!');
+    });
+    onBeforeUpdate(() => {
+      console.log('Before Update!');
+    });
+    onUpdated(() => {
+      console.log('Updated!');
+    });
+    onBeforeUnmount(() => {
+      console.log('Before Unmount!');
+    });
+    onUnmounted(() => {
+      console.log('Unmounted!');
+    });
+    onActivated(() => {
+      console.log('Activated!');
+    });
+    onDeactivated(() => {
+      console.log('Deactivated!');
+    });
+    onErrorCaptured(() => {
+      console.log('Error Captured!');
+    });
     // podemos exportar las funciones compositoras y luego importarlas
     // a través de la función setup allá donde sea necesario.
     return { ...useTasksSpace() };
